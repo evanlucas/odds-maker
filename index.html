@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Caldypants</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"/>
+    <script>
+      window.$ = window.jQuery = require('jquery')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      td.option-cost::before {
+        content: '$'
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="container">
+        <div class="col-md-6">
+          <h1>Add Option</h1>
+          <form id="form" class="form">
+            <div class="control-group">
+              <label class="control-label" for="odds">Odds of occurance</label>
+              <input type="text" name="odds" class="form-control" style="max-width: 300px;">
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="cost">Cost if occurs</label>
+              <input type="number" name="cost" class="form-control" style="max-width: 300px;">
+            </div>
+
+            <hr>
+
+            <button type="submit" class="btn btn-info">Add Option</button>
+
+            <hr>
+
+            <div class="control-group">
+              <label class="control-label" for="cost">Profit</label>
+              <input type="number" name="profit" class="form-control" style="max-width: 300px;" value="2500000">
+            </div>
+            <hr>
+            <button id="generate" type="button" class="btn btn-success">Generate odds</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h1>Options</h1>
+          <table class="table" id="table">
+            <thead>
+              <tr>
+                <th>Risk type</th>
+                <th>Odds of occurance</th>
+                <th>Cost if occurs</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="container">
+        <h1>Results</h1>
+        <table class="table" id="results">
+          <thead>
+            <tr>
+              <th>Combination</th>
+              <th>Total odds</th>
+              <th>Net</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script>
+    require('./renderer')
+  </script>
+</html>
