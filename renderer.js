@@ -9,7 +9,6 @@ $(document).ready(function() {
   const form = $('#form')
   const generateButton = $('#generate')
   form.on('submit', (e) => {
-    console.log('submit', e)
     e.preventDefault()
 
     const odds = $('input[name=odds]').val()
@@ -38,7 +37,6 @@ $(document).ready(function() {
     const btn = $(e.target).closest('button')
     const id = btn.attr('id').replace('x-', '')
     items.delete(id)
-    console.log('items', items)
     removeRow($(`tr#${id}`))
     return false
   })
@@ -57,6 +55,7 @@ $(document).ready(function() {
 
 function renderResults(generator) {
   const table = $('#results tbody')
+  table.empty()
   const data = []
   const trs = []
   for (const [combo, item] of generator.results) {
