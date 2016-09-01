@@ -1,6 +1,6 @@
 {
   "name": "odds-maker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple odds maker",
   "main": "index.js",
   "scripts": {
