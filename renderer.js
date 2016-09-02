@@ -58,12 +58,15 @@ function renderResults(generator) {
   table.empty()
   const data = []
   const trs = []
+  var sum = 0
   for (const [combo, item] of generator.results) {
+    const profit = Number(item[1])
     data.push({
       combo: combo
     , odds: Number(item[0]).toFixed(4)
-    , profit: Number(item[1]).toLocaleString('en')
+    , profit: profit.toLocaleString('en')
     })
+    sum += profit
     trs.push(`
       <tr>
         <td>${combo}</td>
@@ -72,6 +75,15 @@ function renderResults(generator) {
       </tr>
     `)
   }
+
+  trs.push(`
+    <tr class="last-row">
+      <td></td><td></td>
+      <td class="text-right">
+        <strong>$${sum.toLocaleString('en')}</strong>
+      </td>
+    </tr>
+  `)
 
   table.append(trs.join('\n'))
 }
